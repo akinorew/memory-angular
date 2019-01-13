@@ -1,5 +1,19 @@
 :host {
+  cursor: pointer;
   display: block;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  width: 8rem;
+  height: 10rem;
+  margin: 1rem;
+}
+
+.card__flipper {
+  position: relative;
+  width: 8rem;
+  height: 10rem;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
 }
 
 img {
@@ -9,13 +23,19 @@ img {
 
 .front,
 .back {
-  cursor: pointer;
-  height: 10rem;
-  margin: 1rem;
+  backface-visibility: hidden;
+
   width: 8rem;
+  height: 10rem;
+  position: absolute;
 }
 
 .front {
   background-color: #87CEFA;
   border: 1px solid black;
+  transform         : rotateY(-180deg);
+}
+
+.back {
+  transform         : rotateY(0deg);
 }

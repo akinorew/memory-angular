@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { DeckService } from './deck.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CardComponent } from './card.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { CardComponent } from './card.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule
   ],
