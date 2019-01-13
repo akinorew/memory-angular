@@ -1,0 +1,21 @@
+:host {
+  display: block;
+}
+
+img {
+  width: 8rem;
+  height: 10rem;
+}
+
+.front,
+.back {
+  cursor: pointer;
+  height: 10rem;
+  margin: 1rem;
+  width: 8rem;
+}
+
+.front {
+  background-color: #87CEFA;
+  border: 1px solid black;
+}

@@ -3,16 +3,23 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DeckService } from './deck.service';
+import { HttpClientModule } from '@angular/common/http';
+import { CardComponent } from './card.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CardComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    DeckService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
