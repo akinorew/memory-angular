@@ -11,8 +11,12 @@ const _ = require('lodash');
 })
 export class AppComponent implements OnInit {
 
+  card: Card;
+  count = 4;
   deck: Deck;
   memoryCards: Array<Card>;
+  score = 0;
+  tries = 0;
 
   constructor(private deckService: DeckService) { }
 
@@ -28,17 +32,33 @@ export class AppComponent implements OnInit {
   }
 
   getCards(): void {
-    this.deckService.getCards(this.deck.deck_id, 2).subscribe(deck => {
-      this.deck.cards = deck.cards;
-      this.memoryCards = _.shuffle(this.deck.cards.concat(this.deck.cards));
+    this.deckService.getCards(this.deck.deck_id, this.count).subscribe(deck => {
+      this.deck.cards = [...JSON.parse(JSON.stringify(deck.cards)).concat(JSON.parse(JSON.stringify(deck.cards)))];
+      this.memoryCards = _.shuffle(this.deck.cards);
     });
   }
 
-  onFlip(flipped) {
-    console.log('flip', flipped);
+  onFlip(card) {
+    if (this.card) {
+      if (this.card.value === card.value) {
+        this.card = null;
+        this.score++;
+      } else {
+        setTimeout(() => {
+          this.card.flipped = false;
+          card.flipped = false;
+          this.card = null;
+        }, 1000);
+      }
+      this.tries++;
+    } else {
+      this.card = card;
+    }
   }
 
   start(): void {
     this.getDeck();
+    this.score = 0;
+    this.tries = 0;
   }
 }

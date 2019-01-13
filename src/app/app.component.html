@@ -1,8 +1,12 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center" *ngFor="let memoryCard of memoryCards">
-  <div>
-    <app-card [card]=memoryCard (flip)="onFlip($event)"></app-card>
+<div class="content">
+  <button (click)="start()">START</button>
+  <div class="score">SCORE: {{score}} / {{tries}}</div>
+  <div class="game">
+    <div style="text-align:center" *ngFor="let memoryCard of memoryCards">
+      <div>
+        <app-card [card]=memoryCard (flip)="onFlip($event)"></app-card>
+      </div>
+    </div>
   </div>
 </div>
-
 <router-outlet></router-outlet>

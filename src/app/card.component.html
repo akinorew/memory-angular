@@ -1,6 +1,6 @@
-<div class="card__flipper" (click)="!flipped && flipCard()">
-  <div *ngIf="!flipped" class="front"></div>
-  <div *ngIf="flipped" class="back">
+<div class="card__flipper" (click)="!card.flipped && flipCard()">
+  <div *ngIf="!card.flipped" class="front"></div>
+  <div *ngIf="card.flipped" class="back">
     <img src={{card.image}} />
   </div>
 </div>

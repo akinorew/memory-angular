@@ -1,3 +1,13 @@
 :host {
+  display: block;
+}
+
+.content,
+.game {
   display: flex;
+  flex-wrap: wrap;
+}
+
+.score {
+  margin-left: 2rem;
 }
