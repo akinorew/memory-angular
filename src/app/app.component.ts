@@ -40,7 +40,7 @@ export class AppComponent implements OnInit {
 
   onFlip(card) {
     if (this.card) {
-      if (this.card.value === card.value) {
+      if (this.card.code === card.code) {
         this.card = null;
         this.score++;
       } else {
